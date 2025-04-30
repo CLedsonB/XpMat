@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="CLedsonB">
+  <meta name="description" content="Realize cálculos matemáticos num instante!!! Com a nossa poderosa ferramenta Xp-mat equações e formulas não serão mais um problema">
+  <meta name="keywords" content="Calculadora, expressões matemáticas, equações, funções, formulas">
+  <meta name="robots" content="index,nofollow">
+  <meta name="rating" content="10 years"/>
+  <meta name="copyright" content="© 2025 - CLedsonB"/>
+  
+  <link rel="icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/root.css"/>
+  <title>XpMat</title>
+</head>
+<style>
+  header {
+    padding: 0.5em;
+    background-color: #deb887;
+  }
+  h2{
+    color: #000;
+  }
+  main {
+    background-color: #006400;
+    color: #fff;
+    border: 10px solid #deb887;
+  }
+  h3 {
+    padding: 0.8em;
+    text-align: center;
+  }
+  summary {
+    display: flex;
+    align-items: center;
+  }
+  .seta {
+    color: #777;
+    display: flex;
+    font-size: 30px;
+    margin: 5px;
+    transition: transform 0.5s;
+  }
+  details {
+    border-bottom: 1px solid #fff;    
+  }
+  .texto_assunto {
+    padding: 5px 0;
+    margin-left: 30px;
+  }
+  a {
+    color: #aaf;
+  }
+footer {
+  background-color: #deb887;
+  padding-top: 30px;
+}
+.caixa_texto_footer {
+  color: #000;
+  padding-top: 20px;
+  margin-left: 160px;
+  padding-left: 40px;
+  align-items: center;
+  border-left: 1px solid white;
+}
+.texto_footer {
+  padding: 6px;
+}
+.img_logo {
+  width: 80px;
+  margin-left: 50px;
+  padding-top: 10px;
+  float: left;
+}
+.caixa_texto_copy {
+  display: block;
+  text-align: center;
+}
+.texto_copy {
+  color: #444;
+  margin-top: 30px;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+  @keyframes movSeta {
+    0% {  transform: scaleY(1);  }
+    100% { transform: scaleY(-1);}
+  }
+  @keyframes voltarSeta {
+    0% {  transform: scaleY(-1);  }
+    100% { transform: scaleY(1);}
+  }
+  .seta.virar { animation: movSeta 0.1s linear forwards; }
+  .seta.voltar { animation: voltarSeta 0.1s linear forwards;  }
+</style>
+<body>
+  <header>
+    <h2>XpMat</h2>
+  </header>
+  <main>
+    <h3>Áreas de Estudo</h3>
+    <ul>
+      <li>
+        <details>
+          <summary>
+            <div class="seta"> ^ </div>
+            Algebra
+          </summary>
+          <ul>
+            <li class="texto_assunto"><a href="#">Expressão Matemática</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>
+            <div class="seta"> ^ </div>
+            Geometria Analítica
+          </summary>
+          <ul>
+            <li class="texto_assunto"><a href="#">Ponto</a></li>
+            <li class="texto_assunto"><a href="html/reta.html">Reta</a></li>
+            <li class="texto_assunto"><a href="#">Funcao polinomial do 1* Grau (Funcao Afim)</a></li>
+            <li class="texto_assunto"><a href="#">Base media de um triangulo</a></li>
+            <li class="texto_assunto"><a href="#">Inequacoes do 1* Grau</a></li>    
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>
+            <div class="seta"> ^ </div>
+            Matemática financeira
+          </summary>
+          <ul>
+            <li class="texto_assunto"><a href="#">Desconto</a></li>
+            <li class="texto_assunto"><a href="#">Variação percentual</a></li>
+            <li class="texto_assunto"><a href="#">Juros</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>
+            <div class="seta"> ^ </div>
+            Numeros Complexos
+          </summary>
+          <ul>
+            <li class="texto_assunto"><a href="#">Forma Retangular</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>
+            <div class="seta"> ^ </div>
+            Matrizes
+          </summary>
+          <ul>
+            <li class="texto_assunto"><a href="#">xxx</a></li>
+          </ul>
+        </details>
+      </li>
+
+    </ul>
+  </main>  
+</body>
+<footer>
+  <img src="img/logo.jpg" class="img_logo">
+  <div class="caixa_texto_footer">
+    <h4 class="texto_footer">Entre em contato :</h4>
+    <h5 class="texto_footer">Github : <a href="https://github.com/CLedsonB">CLedsonB</a></h5>
+  </div>
+  <br>
+  <div class="caixa_texto_copy">
+    <p class="texto_copy">Copyright 2025</p>
+  </div>
+</footer>
+<script>
+    const setas = document.querySelectorAll('.seta');
+    setas.forEach((seta) => {
+      let virado = false;
+      seta.addEventListener('click', function() {
+        if (!virado) {
+          seta.classList.add('virar');
+          virado = true;
+        } else {
+          seta.classList.remove('virar');
+          seta.classList.add('voltar');
+          setTimeout(() => {
+            seta.classList.remove('voltar');
+          }, 1000);
+          virado = false;
+        }
+      });
+    });
+</script>
+</html>
