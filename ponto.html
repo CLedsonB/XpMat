@@ -41,12 +41,35 @@ h2 {
 #caixa4{
   background-color: #fcf;
 }
+#caixa5{
+  background-color: #44f;
+}
 label {
   display: inline-block;
+  margin: 0 5px;
 }
 input {
   display: inline-block;
   width: 80px;
+  margin: 0 10px;
+  border : 0;
+}
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid #111;
+}
+h4 {
+  margin: 10px 0;
+}
+p {
+  margin: 5px 0;
+}
+button {
+  padding: 6px 10px;
+  font-size: 20px;
+  background-color: #0d0;
+  color: #fff;
 }
 </style>
 <body>
@@ -64,56 +87,213 @@ input {
       <label>X : </label><input type="number" id="cx1_x" class="">
       <label>Y: </label><input type="number" id="cx1_y" class="">
       
-      <h4>Quadrante : <span>0</span></h4>
-      <h4>Bissetriz : <span>0</span></h4>
+      <button id="br1">=</button>
+      
+      <h4>Quadrante : <span id="r1">0</span></h4>
+      <h4>Bissetriz : <span id="r1.1">0</span></h4>
     </div>
     <div id="caixa2" class="conteudo">
       <h3>Distância entre pontos</h3>
       <p>Informe os valores abaixo e saiba a distancia entre eles</p>
       
       <h4>A (x,y)</h4>
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">
+      <label>X :</label><input type="number" id="cx2_ax">
+      <label>Y :</label><input type="number" id="cx2_ay">
       
       <h4>B (x,y)</h4>      
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">  
+      <label>X :</label><input type="number" id="cx2_bx">
+      <label>Y :</label><input type="number" id="cx2_by">  
       
-      <h4>Distancia : <span>0.00</span></h4>
+      <button id="br2">=</button>
+      
+      <h4>Distancia : <span id="r2">0.00</span></h4>
     </div>
     <div id="caixa3" class="conteudo">
       <h3>Ponto Medio (Mediana)</h3>
       <p>Informe os valores abaixo e saiba as coordenadas do ponto medio</p>
       
       <h4>A (x,y)</h4>
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">
+      <label>X :</label><input type="number" id="cx3_ax">
+      <label>Y :</label><input type="number" id="cx3_ay">
       
       <h4>B (x,y)</h4>      
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">        
+      <label>X :</label><input type="number" id="cx3_bx">
+      <label>Y :</label><input type="number" id="cx3_by">        
       
-      <h4>M : <span>(0,0)</span></h4>      
+      <button id="br3">=</button>
+      
+      <h4>M : <span id="r3">(0,0)</span></h4>      
     </div>
-    <div id="caixa4">
+    <div id="caixa4" class="conteudo">
       <h3>Baricentro</h3>
       <p>Informe os valores abaixo e saiba as coordenadas do Baricentro do Triangulo</p>
       
       <h4>A (x,y)</h4>
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">
+      <label>X :</label><input type="number" id="cx4_ax">
+      <label>Y :</label><input type="number" id="cx4_ay">
       
       <h4>B (x,y)</h4>
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">
+      <label>X :</label><input type="number" id="cx4_bx">
+      <label>Y :</label><input type="number" id="cx4_by">
       
       <h4>C (x,y)</h4>
-      <label>X :</label><input type="number">
-      <label>Y :</label><input type="number">
+      <label>X :</label><input type="number" id="cx4_cx">
+      <label>Y :</label><input type="number" id="cx4_cy">
       
-      <h4>G : <span>(0,0)</span></h4>            
+      <button id="br4">=</button>
+      
+      <h4>G : <span id="r4">(0,0)</span></h4>            
+    </div>
+    <div id="caixa5" class="conteudo">
+      <h3>Alinhamento de tres pontos</h3>
+      <p>Informe os valores abaixo e saiba se os pontos sao colineares!</p>
+      
+      <h4>A (x,y)</h4>
+      <label>X :</label><input type="number" id="cx5_ax">
+      <label>Y :</label><input type="number" id="cx5_ay">
+      
+      <h4>B (x,y)</h4>
+      <label>X :</label><input type="number" id="cx5_bx">
+      <label>Y :</label><input type="number" id="cx5_by">
+      
+      <h4>C (x,y)</h4>
+      <label>X :</label><input type="number" id="cx5_cx">
+      <label>Y :</label><input type="number" id="cx5_cy">
+      
+      <button id="br5">=</button>
+      
+      <h4>Os Pontos A, B e C : <span id="r5">(s/n)</span> colineares</h4>            
     </div>
   </main>
 </body>
 <footer></footer>
+<script>
+const cx1_x = document.getElementById("cx1_x");
+const cx1_y = document.getElementById("cx1_y");
+const cx2_ax = document.getElementById("cx2_ax");
+const cx2_ay = document.getElementById("cx2_ay");
+const cx2_bx = document.getElementById("cx2_bx");
+const cx2_by = document.getElementById("cx2_by");
+const cx3_ax = document.getElementById("cx3_ax");
+const cx3_ay = document.getElementById("cx3_ay");
+const cx3_bx = document.getElementById("cx3_bx");
+const cx3_by = document.getElementById("cx3_by");
+
+const cx4_ax = document.getElementById("cx4_ax");
+const cx4_ay = document.getElementById("cx4_ay");
+const cx4_bx = document.getElementById("cx4_bx");
+const cx4_by = document.getElementById("cx4_by");
+const cx4_cx = document.getElementById("cx4_cx");
+const cx4_cy = document.getElementById("cx4_cy");
+
+const cx5_ax = document.getElementById("cx5_ax");
+const cx5_ay = document.getElementById("cx5_ay");
+const cx5_bx = document.getElementById("cx5_bx");
+const cx5_by = document.getElementById("cx5_by");
+const cx5_cx = document.getElementById("cx5_cx");
+const cx5_cy = document.getElementById("cx5_cy");
+
+const br1 = document.getElementById("br1");
+const br2 = document.getElementById("br2");
+const br3 = document.getElementById("br3");
+const br4 = document.getElementById("br4");
+const br5 = document.getElementById("br5");
+
+const r1 = document.getElementById("r1");
+const r1_1 = document.getElementById("r1.1");
+const r2 = document.getElementById("r2");
+const r3 = document.getElementById("r3");
+const r4 = document.getElementById("r4");
+const r5 = document.getElementById("r5");
+
+function dtQuadrante(x, y) {
+  const quadrantes = {
+    "1*": x > 0 && y > 0,"2*": x < 0 && y > 0,
+    "3*": x < 0 && y < 0,"4*": x > 0 && y < 0};
+
+  for (const qd in quadrantes) {
+    if (quadrantes[qd]) return qd;
+  }
+  if (x === 0 && y === 0) return "Origem";
+  if (x === 0) return "Eixo y";
+  if (y === 0) return "Eixo x";
+}
+  
+br1.addEventListener("click", function() {
+  const x = parseFloat(cx1_x.value);
+  const y = parseFloat(cx1_y.value);
+  
+  const result = dtQuadrante(x,y);
+  const result2 = (x == y) ? "Quadrante impares (b13)" : ((x == -y) ? "Quadrante pares (b24)" : "Nao pertence");  
+  
+  r1.innerHTML = result;
+  r1_1.innerHTML = result2;
+});
+  
+br2.addEventListener("click", function() {
+  const ax = parseFloat(cx2_ax.value);
+  const ay = parseFloat(cx2_ay.value);
+  const bx = parseFloat(cx2_bx.value);
+  const by = parseFloat(cx2_by.value);
+  
+  const result = Math.hypot(ax-bx,ay-by);
+  
+  if (!isNaN(result)) {
+    r2.innerHTML = result.toFixed(2);
+  } else {
+    r2.innerHTML = "ErroR";
+  }
+});
+
+br3.addEventListener("click", function() {
+  const ax = parseFloat(cx3_ax.value);
+  const ay = parseFloat(cx3_ay.value);
+  const bx = parseFloat(cx3_bx.value);
+  const by = parseFloat(cx3_by.value);
+  
+  const rx = (ax+bx)/2;
+  const ry = (ay+by)/2;
+
+  if (!isNaN(rx) && !isNaN(ry)) {
+    r3.innerHTML = `(${rx.toFixed(2)}, ${ry.toFixed(2)})`;
+  } else {
+    r3.innerHTML = "ErroR";
+  }
+});
+  
+br4.addEventListener("click", function() {
+  const ax = parseFloat(cx4_ax.value);
+  const ay = parseFloat(cx4_ay.value);
+  const bx = parseFloat(cx4_bx.value);
+  const by = parseFloat(cx4_by.value);
+  const cx = parseFloat(cx4_cx.value);
+  const cy = parseFloat(cx4_cy.value);
+  
+  const rx = (ax+bx+cx)/3;
+  const ry = (ay+by+cy)/3;
+
+  if (!isNaN(rx) && !isNaN(ry)) {
+    r4.innerHTML = `(${rx.toFixed(2)}, ${ry.toFixed(2)})`;
+  } else {
+    r4.innerHTML = "ErroR";
+  }
+});
+
+br5.addEventListener("click", function() {
+  const ax = parseFloat(cx5_ax.value);
+  const ay = parseFloat(cx5_ay.value);
+  const bx = parseFloat(cx5_bx.value);
+  const by = parseFloat(cx5_by.value);
+  const cx = parseFloat(cx5_cx.value);
+  const cy = parseFloat(cx5_cy.value);
+  
+  const result = (cx-bx)*(by-ay)-(bx-ax)*(cy-by) /*Determinante*/;
+
+  if (!isNaN(result)) {
+    if(result != 0){ r5.innerHTML = "nao sao"} else { r5.innerHTML = "sao" }
+  } else {
+    r5.innerHTML = "ErroR";
+  }
+});
+</script>
 </html>
