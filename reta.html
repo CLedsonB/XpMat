@@ -16,13 +16,115 @@
   <link rel="stylesheet" href="root.css"/>
   <title>Reta</title>
 </head>
+<style>
+html {
+  background-color: #000;
+  color: #fff;
+}
+h2 {
+  display: inline-block;
+}
+.retorno {
+  display: inline-block;
+  margin : 10px 30px;
+  font-size: 30px;
+  font-style: bold;
+}
+.conteudo {
+  padding: 20px;
+  border-bottom: 1px solid #fff;
+}
+label {
+  display: inline-block;
+  margin: 0 5px;
+}
+input {
+  display: inline-block;
+  font-size: 16px;
+  height: 26px;
+  width: 60px;
+  margin: 0 10px;
+  border : 0;
+}
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border: 2px solid #111;
+}
+h4 {
+  margin: 10px 0;
+}
+p {
+  margin: 5px 0;
+}
+button {
+  padding: 6px 10px;
+  font-size: 20px;
+  background-color: #0d0;
+  color: #fff;
+}
+</style>
 <body>
   <header>
-    <h2><a href="#"><--</a> Reta</h2>
+    <span class="retorno">
+      <a href="https://cledsonb.github.io/XpMat/"><--</a>
+    </span>
+    <h2>Reta</h2>    
   </header>
   <main>
-    <div class="conteudo">
-      <h3>Distância</h3>
+    <div id="caixa1" class="conteudo">
+      <h3>Informacoes da reta</h3>
+      <p>Informe os coeficientes da equacao geral e saiba suas informacoes</p>
+      
+      <h4>Eq. Geral => ax + by + c = 0</h4>
+      <label>A : </label><input type="number" id="cx1_a" class="">
+      <label>B : </label><input type="number" id="cx1_b" class="">
+      <label>C : </label><input type="number" id="cx1_c" class="">
+  
+      <button id="br1">=</button>
+      
+      <h4>Paralela : <span id="r1.1">(s/n)</span></h4>
+      <h4>Origem : <span id="r1.2">(s/n)</span></h4>
+      <h4>Coeficiente Angular : <span id="r1.3">0</span></h4>
+      <h4>Coeficiente Linear : <span id="r1.4">0</span></h4>
+      <h4>Raiz : <span id="r1.5">0</span></h4>
+      <h4>Lei da Funcao Afim : <span id="r1.6">y = ax + b</span></h4>
+      
+    </div>    
+    <div id="caixa2" class="conteudo">
+      <h3>Ponto pertence a reta</h3>
+      <p>Informe os coeficiente da equacao geral e as coordenadas do ponto e saiba se o ponto dado pertece a reta</p>
+      
+      <h4>A(x,y)</h4>
+      <label>X : </label><input type="number" id="cx2_x" class="">
+      <label>Y : </label><input type="number" id="cx2_y" class="">
+      
+      <h4>Eq. Geral => ax + by + c = 0</h4>
+      <label>A : </label><input type="number" id="cx2_a" class="">
+      <label>B : </label><input type="number" id="cx2_b" class="">
+      <label>C : </label><input type="number" id="cx2_c" class="">
+  
+      <button id="br2">=</button>
+      
+      <h4>O Ponto <span id="r2">(s/n)</span> a reta</h4>
+    </div>
+    <div id="caixa3" class="conteudo">
+      <h3>Paralelismo de Retas</h3>
+      <p>Informe os coeficientes das equacoes geral e saiba se elas sao paralelas</p>
+      
+      <h4>Eq. Geral => ax + by + c = 0</h4>
+      <label>A : </label><input type="number" id="cx3_a1" class="">
+      <label>B : </label><input type="number" id="cx3_b1" class="">
+      <label>C : </label><input type="number" id="cx3_c1" class="">
+      
+      <h4>Eq. Geral => ax + by + c = 0</h4>
+      <label>A : </label><input type="number" id="cx3_a2" class="">
+      <label>B : </label><input type="number" id="cx3_b2" class="">
+      <label>C : </label><input type="number" id="cx3_c2" class="">
+  
+      <button id="br3">=</button>
+      
+      <h4>As retas <span id="r3">(s/n)</span> paralelas</h4>
     </div>
   </main>
 </body>
